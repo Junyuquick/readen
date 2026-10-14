@@ -1,0 +1,29 @@
+CACHE MANIFEST
+# version 7d5c2cdb5d125c0a
+
+CACHE:
+index.html
+diag.html
+manifest.webmanifest
+css/app.css
+js/api.js
+js/app.js
+js/cloud.js
+js/crypto.js
+js/diag.js
+js/idb.js
+js/logic.js
+js/reader.js
+vendor/nacl-fast.min.js
+vendor/sha256.min.js
+vendor/pdf.min.js
+vendor/pdf.worker.min.js
+icons/icon-120.png
+icons/icon-152.png
+icons/icon-167.png
+icons/icon-180.png
+icons/icon-192.png
+icons/icon-512.png
+
+NETWORK:
+*
