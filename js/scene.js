@@ -1,0 +1,25 @@
+/* The snowed-in cabin behind the library: a lit window, chimney smoke, stars and falling snow.
+ * Fewer flakes on old iPads (iOS 9, 512 MB); nothing at all moves for people who ask for reduced motion (CSS). ES5. */
+(function (root) {
+  'use strict';
+  var rnd = 11; function r() { rnd = (rnd * 9301 + 49297) % 233280; return rnd / 233280; }
+  function sprinkle(box, cls, n, o) {
+    for (var i = 0; i < n; i++) {
+      var d = document.createElement('i'); d.className = cls + (o.variants ? ' ' + o.variants[i % o.variants.length] : '');
+      d.style.left = (r() * 100) + '%'; var s = o.size[0] + r() * (o.size[1] - o.size[0]); d.style.width = s + 'px'; d.style.height = s + 'px';
+      var dur = o.dur[0] + r() * (o.dur[1] - o.dur[0]); d.style.webkitAnimationDuration = dur + 's'; d.style.animationDuration = dur + 's';
+      var del = -r() * dur; d.style.webkitAnimationDelay = del + 's'; d.style.animationDelay = del + 's'; if (o.top) d.style.top = (r() * o.top) + '%'; box.appendChild(d);
+    }
+  }
+  var HTML = '<div class="layer stars"></div><div class="land"><svg viewBox="0 200 1000 480" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><defs><radialGradient id="wg" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ffd48a" stop-opacity=".55"/><stop offset="1" stop-color="#ffd48a" stop-opacity="0"/></radialGradient><linearGradient id="dr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9f0fa"/><stop offset="1" stop-color="#aebddb"/></linearGradient><symbol id="pine" viewBox="0 0 100 220"><path d="M50 0 L82 70 L66 70 L92 130 L72 130 L100 200 L0 200 L28 130 L8 130 L34 70 L18 70 Z" fill="currentColor"/><rect x="44" y="196" width="12" height="24" fill="currentColor"/></symbol></defs><path d="M0 430 Q150 350 330 410 T650 385 T1000 410 L1000 700 L0 700Z" fill="#26335f"/><g style="color:#1a2547"><use href="#pine" xlink:href="#pine" x="40" y="290" width="70" height="154"/><use href="#pine" xlink:href="#pine" x="110" y="310" width="56" height="123"/><use href="#pine" xlink:href="#pine" x="860" y="280" width="78" height="172"/><use href="#pine" xlink:href="#pine" x="930" y="320" width="58" height="128"/><use href="#pine" xlink:href="#pine" x="300" y="330" width="46" height="101"/></g><g transform="translate(330 330)"><circle cx="150" cy="160" r="190" fill="url(#wg)"/><rect x="0" y="70" width="320" height="190" fill="#6c4328"/><g fill="#4d2f1a"><rect y="96" width="320" height="5"/><rect y="124" width="320" height="5"/><rect y="152" width="320" height="5"/><rect y="180" width="320" height="5"/><rect y="208" width="320" height="5"/><rect y="236" width="320" height="5"/></g><g fill="#7d5233"><circle cx="0" cy="98" r="7"/><circle cx="320" cy="98" r="7"/><circle cx="0" cy="126" r="7"/><circle cx="320" cy="126" r="7"/><circle cx="0" cy="154" r="7"/><circle cx="320" cy="154" r="7"/><circle cx="0" cy="182" r="7"/><circle cx="320" cy="182" r="7"/></g><polygon points="-24,78 160,-30 344,78" fill="#3a2a24"/><polygon points="-30,80 160,-38 350,80 322,66 160,-14 -2,66" fill="#eef3fb"/><rect x="236" y="0" width="34" height="80" fill="#4a3a35"/><rect x="230" y="-8" width="46" height="14" fill="#eef3fb"/><rect x="52" y="112" width="96" height="84" fill="#f6c26b"/><rect x="48" y="108" width="104" height="92" fill="none" stroke="#2f1d12" stroke-width="8"/><rect x="98" y="108" width="6" height="92" fill="#2f1d12"/><rect x="48" y="150" width="104" height="6" fill="#2f1d12"/><rect x="206" y="146" width="62" height="114" fill="#35201a"/><circle cx="256" cy="204" r="4" fill="#d9a35b"/><rect x="-10" y="258" width="340" height="14" fill="#eef3fb"/><g fill="#d6dfee" opacity=".7"><circle cx="253" cy="-20" r="9"><animate attributeName="cy" from="-10" to="-130" dur="6s" repeatCount="indefinite"/><animate attributeName="r" from="8" to="26" dur="6s" repeatCount="indefinite"/><animate attributeName="opacity" from=".6" to="0" dur="6s" repeatCount="indefinite"/></circle><circle cx="250" cy="-20" r="9"><animate attributeName="cy" from="-10" to="-130" dur="6s" begin="2s" repeatCount="indefinite"/><animate attributeName="r" from="8" to="26" dur="6s" begin="2s" repeatCount="indefinite"/><animate attributeName="opacity" from=".6" to="0" dur="6s" begin="2s" repeatCount="indefinite"/></circle></g></g><path d="M0 585 Q220 520 440 575 T800 555 T1000 575 L1000 700 L0 700Z" fill="url(#dr)"/><path d="M0 640 Q260 590 520 636 T1000 620 L1000 700 L0 700Z" fill="#f3f7fd"/></svg></div><div class="below"></div><div class="layer flakes"></div><div class="veil"></div>';
+  function mount(el) {
+    if (!el) return;
+    var old = /OS [0-9]_\d+(_\d+)? like Mac OS X/.test(navigator.userAgent || '');
+    el.innerHTML = HTML;
+    sprinkle(el.querySelector('.stars'), 'star', old ? 14 : 30, { size: [1, 2.4], dur: [4, 7], top: 48 });
+    sprinkle(el.querySelector('.flakes'), 'flake', old ? 14 : 34, { size: [2, 5], dur: [8, 15], variants: ['', 'v2', 'v3'] });
+  }
+  function setH() { document.documentElement.style.setProperty('--h', (window.innerHeight + 24) + 'px'); }
+  setH(); window.addEventListener('resize', setH, false);
+  root.RScene = { mount: mount };
+}(this));

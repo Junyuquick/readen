@@ -1,0 +1,37 @@
+CACHE MANIFEST
+# version 45cddf82a4d6f6e7
+
+CACHE:
+index.html
+diag.html
+manifest.webmanifest
+css/app.css
+js/app.js
+js/ask.js
+js/cloud.js
+js/covers.js
+js/crypto.js
+js/diag.js
+js/idb.js
+js/logic.js
+js/reader.js
+js/scene.js
+js/version.js
+vendor/nacl-fast.min.js
+vendor/sha256.min.js
+vendor/pdf.min.js
+vendor/pdf.worker.min.js
+fonts/bricolage-grotesque-700.woff
+fonts/bricolage-grotesque-800.woff
+fonts/figtree-400.woff
+fonts/figtree-500.woff
+fonts/figtree-600.woff
+icons/icon-120.png
+icons/icon-152.png
+icons/icon-167.png
+icons/icon-180.png
+icons/icon-192.png
+icons/icon-512.png
+
+NETWORK:
+*

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Readen diagnostics</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' https://*.local:* https://api.github.com https://*.workers.dev https://*.val.run https://*.netlify.app; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { font: 15px/1.4 -apple-system, Helvetica, sans-serif; margin: 0; padding: 14px; background: #f4f4f5; color: #18181b; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  p { color: #52525b; margin: 4px 0 10px; }
+  #log { background: #fff; border-radius: 12px; padding: 10px 12px; font-family: Menlo, monospace; font-size: 12.5px; white-space: pre-wrap; word-wrap: break-word; }
+  .ok { color: #15803d; } .fail { color: #b42318; font-weight: 600; } .info { color: #52525b; }
+  button, textarea { font: inherit; }
+  button { min-height: 44px; border-radius: 12px; border: 0; background: #b8430f; color: #fff; font-weight: 600; padding: 0 18px; margin: 10px 8px 0 0; }
+  textarea { width: 100%; height: 140px; margin-top: 10px; border-radius: 12px; border: 1px solid #d4d4d8; padding: 8px; font-family: Menlo, monospace; font-size: 12px; }
+</style>
+</head>
+<body>
+<h1>Readen diagnostics</h1>
+<p>This checks, one step at a time, what this device can do. When it finishes, tap Copy results and send them to me, or take a screenshot.</p>
+<p>Testing a relay? Type its address here, then tap Run again: <input id="relay" type="text" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="https://readen-relay.yourname.workers.dev" style="width:100%;box-sizing:border-box;min-height:40px;border-radius:10px;border:1px solid #d4d4d8;padding:0 10px;font:inherit"></p>
+<div id="log" aria-live="polite">Starting...</div>
+<button id="rerun" type="button">Run again</button><button id="home" type="button">Back to Readen</button>
+<textarea id="out" readonly aria-label="Results to copy"></textarea>
+<script src="vendor/nacl-fast.min.js"></script>
+<script src="vendor/sha256.min.js"></script>
+<script src="vendor/pdf.min.js"></script>
+<script src="js/version.js"></script>
+<script src="js/diag.js" data-tiny-pdf="JVBERi0xLjQKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2JqCjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9LaWRzIFs0IDAgUl0gL0NvdW50IDEgPj4KZW5kb2JqCjMgMCBvYmoKPDwgL1R5cGUgL0ZvbnQgL1N1YnR5cGUgL1R5cGUxIC9CYXNlRm9udCAvSGVsdmV0aWNhID4+CmVuZG9iago0IDAgb2JqCjw8IC9UeXBlIC9QYWdlIC9QYXJlbnQgMiAwIFIgL01lZGlhQm94IFswIDAgNjEyIDc5Ml0gL0NvbnRlbnRzIDUgMCBSIC9SZXNvdXJjZXMgPDwgL0ZvbnQgPDwgL0YxIDMgMCBSID4+ID4+ID4+CmVuZG9iago1IDAgb2JqCjw8IC9MZW5ndGggNTMgPj4Kc3RyZWFtCkJUIC9GMSAyNCBUZiA3MiA3MDAgVGQgKGRpYWdub3N0aWMgcGFnZSBwYWdlIDEpIFRqIEVUCmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDYKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDA5IDAwMDAwIG4gCjAwMDAwMDAwNTggMDAwMDAgbiAKMDAwMDAwMDExNSAwMDAwMCBuIAowMDAwMDAwMTg1IDAwMDAwIG4gCjAwMDAwMDAzMTEgMDAwMDAgbiAKdHJhaWxlcgo8PCAvU2l6ZSA2IC9Sb290IDEgMCBSID4+CnN0YXJ0eHJlZgo0MTQKJSVFT0YK"></script>
+</body>
+</html>
